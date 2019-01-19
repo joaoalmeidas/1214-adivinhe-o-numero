@@ -24,6 +24,10 @@ public class Adivinhacao {
 		return false;
 		
 	}
+	
+	public void novoAleatorio() {
+		setNumeroEscolhido(getValorMinimo() + getAleatorio().nextInt(getValorMaximo()));
+	}
 
 	public int getNumeroEscolhido() {
 		return numeroEscolhido;
