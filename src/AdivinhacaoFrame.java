@@ -67,6 +67,7 @@ public class AdivinhacaoFrame extends JFrame {
 		add(panelResultado);
 		add(panelBotoes);
 		
+		
 	}
 
 }
