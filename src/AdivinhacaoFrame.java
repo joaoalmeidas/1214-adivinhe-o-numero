@@ -1,5 +1,8 @@
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,7 +27,11 @@ public class AdivinhacaoFrame extends JFrame {
 	private final JButton botaoTentar;
 	private final JButton botaoNovoJogo;
 	
+	private final Adivinhacao adivinhacao;
+	
 	public AdivinhacaoFrame() {
+		
+		adivinhacao = new Adivinhacao(1, 1000);
 		
 		setLayout(new GridLayout(5,1));
 		
@@ -58,8 +65,10 @@ public class AdivinhacaoFrame extends JFrame {
 		
 		botaoTentar = new JButton("Tentar");
 		botaoNovoJogo = new JButton("Jogar Novamente");
+		botaoNovoJogo.setVisible(false);
 		
 		panelBotoes.add(botaoTentar);
+		panelBotoes.add(botaoNovoJogo);
 		
 		
 		add(panelDescricao);
@@ -67,7 +76,66 @@ public class AdivinhacaoFrame extends JFrame {
 		add(panelResultado);
 		add(panelBotoes);
 		
+		botaoTentar.addActionListener(
+				
+				new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent event) {
+						
+						if(adivinhacao.estaNosLimites(Integer.parseInt(numero.getText()))) {
+							
+							if(Integer.parseInt(numero.getText()) == adivinhacao.getNumeroEscolhido()) {
+								
+								labelResultado.setText("Acertou!!!");
+								numero.setBackground(Color.GREEN);
+								botaoTentar.setVisible(false);
+								botaoNovoJogo.setVisible(true);
+								
+							}else if(Integer.parseInt(numero.getText()) < adivinhacao.getNumeroEscolhido()) {
+								
+								labelResultado.setText("Tentativa muito baixa!");
+								numero.setBackground(Color.BLUE);
+								
+							}else if(Integer.parseInt(numero.getText()) > adivinhacao.getNumeroEscolhido()) {
+								
+								labelResultado.setText("Tentativa muito alta!");
+								numero.setBackground(Color.RED);
+								
+							}
+							
+						}else {
+							
+							labelResultado.setText("Valor inválido");
+							
+						}
+						
+					}
+					
+					
+					
+				}
+				
+				);
 		
+		botaoNovoJogo.addActionListener(
+				
+				new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						
+						botaoNovoJogo.setVisible(false);
+						botaoTentar.setVisible(true);
+						
+						
+					}
+					
+					
+					
+				}
+				
+				);
 	}
 
 }

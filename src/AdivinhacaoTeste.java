@@ -6,7 +6,7 @@ public class AdivinhacaoTeste {
 
 		AdivinhacaoFrame adivinhacao = new AdivinhacaoFrame();
 		adivinhacao.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		adivinhacao.setSize(309, 300);
+		adivinhacao.setSize(300, 400);
 		adivinhacao.setVisible(true);
 		
 	}
