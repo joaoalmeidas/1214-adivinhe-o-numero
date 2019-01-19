@@ -33,7 +33,7 @@ public class AdivinhacaoFrame extends JFrame {
 		
 		adivinhacao = new Adivinhacao(1, 1000);
 		
-		setLayout(new GridLayout(5,1));
+		setLayout(new GridLayout(4,1));
 		
 		panelNumero = new JPanel();
 		panelNumero.setLayout(new FlowLayout());
@@ -127,7 +127,7 @@ public class AdivinhacaoFrame extends JFrame {
 						
 						botaoNovoJogo.setVisible(false);
 						botaoTentar.setVisible(true);
-						
+						adivinhacao.novoAleatorio();
 						
 					}
 					
