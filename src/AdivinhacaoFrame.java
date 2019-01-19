@@ -1,6 +1,7 @@
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,6 +12,7 @@ public class AdivinhacaoFrame extends JFrame {
 	private final JPanel panelDescricao;
 	private final JPanel panelNumero;
 	private final JPanel panelResultado;
+	private final JPanel panelBotoes;
 	
 	private final JLabel label1;
 	private final JLabel label2;
@@ -18,6 +20,9 @@ public class AdivinhacaoFrame extends JFrame {
 	private final JLabel labelResultado;
 	
 	private final JTextField numero;
+	
+	private final JButton botaoTentar;
+	private final JButton botaoNovoJogo;
 	
 	public AdivinhacaoFrame() {
 		
@@ -32,6 +37,9 @@ public class AdivinhacaoFrame extends JFrame {
 		panelResultado = new JPanel();
 		panelResultado.setLayout(new FlowLayout());
 		
+		panelBotoes = new JPanel();
+		panelBotoes.setLayout(new FlowLayout());
+		
 		label1 = new JLabel("Tenho um número entre 1 e 1000.");
 		label2 = new JLabel("Você consegue adivinhar meu número?");
 		label3 = new JLabel("Insira a sua tentativa:");
@@ -44,13 +52,20 @@ public class AdivinhacaoFrame extends JFrame {
 		
 		panelNumero.add(numero);
 		
-		labelResultado = new JLabel("Teste");
+		labelResultado = new JLabel();
 		
 		panelResultado.add(labelResultado);
+		
+		botaoTentar = new JButton("Tentar");
+		botaoNovoJogo = new JButton("Jogar Novamente");
+		
+		panelBotoes.add(botaoTentar);
+		
 		
 		add(panelDescricao);
 		add(panelNumero);
 		add(panelResultado);
+		add(panelBotoes);
 		
 	}
 
